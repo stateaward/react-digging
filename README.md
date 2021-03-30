@@ -152,3 +152,27 @@ Hello.defaultProps = {
    name: '이름없음',
 };
 ```
+
+### props.children
+
+-  컴포넌트 안에 들어가 있는 값을 조회하기 위한 예약어 (사용은 무조건 `{ childre. }` )
+-  Wrapper의 입장 : 자기 태그 안에 있는 정보를 가져오기 위해 `children` 을 사용함
+   -  `<Hello>` 컴포넌트도 하나의 변수인 셈
+
+```jsx
+// App.js
+<Wrapper val="공부공부">
+   <Hello name="react" color="red" />
+   <Hello color="pink" />
+</Wrapper>;
+
+// Wrapper.js
+function Wrapper({ children, val }) {
+   return (
+      <div style={style}>
+         {children}
+         {val}
+      </div>
+   );
+}
+```
