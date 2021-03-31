@@ -1,6 +1,8 @@
 import React from 'react';
 import Hello from './Hello';
 import Wrapper from './Wrapper';
+import Counter from './Counter'
+
 import './App.css';   // css 파일도 import
 
 function App() {
@@ -20,9 +22,13 @@ function App() {
       {/* 주석은 이렇게 */}
 
       <Wrapper val="발발">
-        <Hello name="react" color="red"/>
+        <Hello name="이창호씨" color="red" isVisit/>
         <Hello color="pink"/>
       </Wrapper>
+
+      <hr></hr>
+
+      <Counter />
     </>
   );
 }

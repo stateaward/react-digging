@@ -176,3 +176,63 @@ function Wrapper({ children, val }) {
    );
 }
 ```
+
+---
+
+## 변수
+
+변수의 사용은 `{}` 안에 넣기
+
+-  `true`, `false` 같은 boolean 값 또한, JSX 상에선 `{true}` 로 표현
+
+```jsx
+<Wrapper>
+   <Hello name="react" color="red" isSpecial={true} />
+   <Hello color="pink" />
+</Wrapper>
+```
+
+### 컴포넌트간 사용하는 변수명
+
+`function Hello(props, children) { ... }`
+
+-  `props` : 넘어오는 params 전체 덩어리를 가르킴
+   -  직접 변수를 선언 안하고, `{props.name}` 와 같은 식으로 사용 가능함
+   -  인자로 받는 `name` 등을 감싸고 있는 전체 덩어리 객체
+   -  `props` = `(name, color, isVisit)`
+   -  `props` 로 선언시, `생성자 오버로딩`을 무시하고 하나로 퉁 칠 수 있다.
+-  `children` : 컴포넌트 안에 들어가 있는 값을 조회
+
+   → 위 두개는 저대로 인자로 적어야지 작동 가능한 예약어 인 셈
+
+## 조건문
+
+```jsx
+// Wrapper.js
+function Hello({ color, isSpecial }) {
+   return (
+      <div style={{ color }}>
+         {isSpecial && <b>*</b>}
+         안녕하세요 {name}
+      </div>
+   );
+}
+```
+
+### 삼항 연산자
+
+`{ 대상 ? true일 때 : false일 때 }` 대상이 참일 경우, true 일 때 값을 vice versa.
+
+### 단축 논리 계산법
+
+`{ isSpecial && <b>*</b> }` 대상이 참일 때, `<b>*</b>` 을 출력하겠다.
+`false` 일 땐, 그냥 `false`.. 사실상 `null`
+
+[논리 계산법 링크](https://learnjs.vlpt.us/useful/03-short-circuiting.html)
+
+### 부모가 보내는 props 값 true로 쉽게
+
+`<Hello name="react" color="red" isSpecial />`
+
+그냥 보내는 props 값을 그대로 보내면, `true` 로 설정한 것
+`isSpecial={true}` 와 동일 의미
