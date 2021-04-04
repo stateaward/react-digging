@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Hello(props) {
-   return(
+   return (
       <div style={{ color: props.color }}>
          안녕하세요 {props.name}
          <br></br>
